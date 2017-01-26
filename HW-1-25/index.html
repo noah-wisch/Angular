@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Movie Catalog</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://use.fontawesome.com/7fb1b7bdac.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body ng-app="MovieApp">
+    <h1>Movies Lists are Good</h1>
+    <section ng-controller="UserController">
+        <p>{{ name }}'s Movie List is the {{ adjective }}!</p>
+        <input type="text" ng-model="name" placeholder="Your name">
+    </section>
+
+    <section ng-controller="MovieListController">
+        <p>Movie List:</p>
+
+        <input type="text" ng-model="movieName" placeholder="Enter movie">
+        <input type="text" ng-model="movieRelease" placeholder="Enter release date">
+        <input type="text" ng-model="movieGenre" placeholder="Enter genre">
+        <button ng-click="newTitle()">Add Film</button>
+        <ul>
+            <li ng-repeat="wholeMovie in movieTitles">
+                <p>
+                    {{ wholeMovie.title }} {{ wholeMovie.release }} {{ wholeMovie.genre }}
+                </p>
+                <p>Rate:{{ wholeMovie.rating }}</p>
+                <button id="good" ng-click="thumbsUp()"><i class="fa fa-thumbs-up" aria-hidden="true"></i></button>
+                <button id="bad" ng-click="thumbsDown()"><i class="fa fa-thumbs-down" aria-hidden="true"></i></button>
+                <button id="trash" ng-click="remove($index)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+            </li>
+        </ul>
+    </section>
+</body>
+
+</html>
