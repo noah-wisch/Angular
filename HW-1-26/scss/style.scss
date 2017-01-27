@@ -3,25 +3,88 @@
 @include foundation-global-styles;
 @include foundation-grid;
 
+$bg-color: #564256;
+$text-color: #E8E8E8;
+$secondary-color: #BFBFBF;
+$tertiary-color: #96939B;
+$accent-color: #FC814A;
+$font-overpass: overpass;
+$font-pattaya: pattaya;
+
+
 body {
-    background-color:#522D80;
+    background-color: $bg-color;
     padding-left: 20px;
-    color:white;
+    color:$text-color;
+
+    header {
+        text-align: center;
+        font-family: $font-pattaya;
+        border: 2px solid $accent-color;
+        border-radius:5px;
+        max-width:100%;
+    }
+
+    #title {
+        font-weight:bold;
+    }
+
+    #date {
+        font-style: italic;
+    }
+
+    #sum {
+        font-weight:lighter;
+    }
+
+}
+
+section {
+    font-family:$font-overpass;
 }
 
 button {
     @include button;
-    border-radius: 5px;
+    color: $text-color;
+    background-color: #847584;
+    // border-radius: 5px;
+}
+
+button:focus {
+    background-color: $accent-color;
+}
+
+button:hover {
+    background-color: #B85E36;
+}
+
+.rated {
+        background-color: $accent-color;
+}
+
+
+#btnR {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#btnL {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 ul {
+    // @include grid-row();
     list-style: none;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 
     li {
-        border: 2px solid white;
+        // @include grid-column(2);
+        border: 2px solid $tertiary-color;
+        background-color:$tertiary-color;
+        border-radius: 5px;
         padding:1%;
         width:20%;
         margin: 2%;
@@ -30,5 +93,4 @@ ul {
     img {
         height: 250px;
     }
-
 }

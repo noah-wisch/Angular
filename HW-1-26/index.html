@@ -6,26 +6,33 @@
     <title>Movie Catalog V.2</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://use.fontawesome.com/7fb1b7bdac.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Overpass|Pattaya" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
     <script src="app.js"></script>
 </head>
 
 <body ng-app="MovieApp">
-    <h1>Netflix and Chill Preparation DB</h1>
-    <!--<section ng-controller="NewMovieController">
+    <header>
+        <h1>Netflix and Chill Preparation DB</h1>
+    </header>
+    <section ng-controller="FavoritesController">
 
-    </section>-->
+    </section>
 
     <section ng-controller="ShowMoviesController">
         <ul>
             <li ng-repeat="currentMovie in movies">
                 <img ng-src="https://image.tmdb.org/t/p/w185_and_h278_bestv2{{ currentMovie.poster_path }}">
-                <h3>{{ currentMovie.title }}</h3>
-                <p>Released {{ currentMovie.release_date }}</p>
-                <p>{{ currentMovie.overview }}</p>
-                <p ng-show="currentMovie.isFavorite">THIS MOVIE IS LIT</p>
-                <button ng-hide="currentMovie.isFavorite" ng-click="favoritemovie(currentMovie)"><i class="fa fa-star" aria-hidden="true"></i>
-</button>
+                <h3 id="title">{{ currentMovie.title }}</h3>
+                <p id="date">Released {{ currentMovie.release_date }}</p>
+                <p id="sum">{{ currentMovie.overview }}</p>
+
+                <button id="btnL" ng-click="favoriteMovie(1, currentMovie)" ng-class="{rated: currentMovie.markAsFavorite >= 1}"><i class="fa fa-star" aria-hidden="true"></i>
+                <button ng-click="favoriteMovie(2, currentMovie)" ng-class="{rated: currentMovie.markAsFavorite >= 2}"><i class="fa fa-star" aria-hidden="true"></i>
+                <button ng-click="favoriteMovie(3, currentMovie)" ng-class="{rated: currentMovie.markAsFavorite >= 3}"><i class="fa fa-star" aria-hidden="true"></i>
+                <button ng-click="favoriteMovie(4, currentMovie)" ng-class="{rated: currentMovie.markAsFavorite >= 4}"><i class="fa fa-star" aria-hidden="true"></i>
+                <button id="btnR" ng-click="favoriteMovie(5, currentMovie)" ng-class="{rated: currentMovie.markAsFavorite >= 5}"><i class="fa fa-star" aria-hidden="true"></i>
+                </button>
             </li>
         </ul>
     </section>

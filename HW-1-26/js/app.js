@@ -1,16 +1,15 @@
 
 const app = angular.module('MovieApp', []);
 
-// app.controller('NewMovieController', ($scope, MovieService) => {
+app.controller('FavoritesController', ($scope, MovieService) => {
 
-// });
+});
 
 app.controller('ShowMoviesController', ($scope, MovieService) => {
     $scope.movies = MovieService.getMovies();
 
-    $scope.favoriteMovie = (target) => {
-        console.log(`${target.title} is LIT`);
-        MovieService.markAsFavorite(target);
+    $scope.favoriteMovie = (count, target) => {
+        console.log(`${target.title} is ${count} stars!`);        target.markAsFavorite = count;
     };
 });
 
@@ -28,8 +27,8 @@ app.factory('MovieService', ($http) => {
         getMovies() {
             return movies;
         },
-        markAsFavorite(goodie) {
-            goodie.isFavorite = true;
-        },
+        // markAsFavorite(goodie) {
+        //     goodie.isFavorite = true;
+        // },
     };
 });
