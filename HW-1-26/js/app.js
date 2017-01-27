@@ -14,18 +14,22 @@ app.controller('ShowMoviesController', ($scope, MovieService) => {
     };
 });
 
-app.factory('MovieService', () => {
+app.factory('MovieService', ($http) => {
     const movies = [];
 
+    $http.get('https://api.themoviedb.org/3/discover/movie?api_key=1f2455004d5eb8b8ccb218186171de29').then(function (response) {
+        angular.copy(response.data.results, movies);
+    });
+
     return {
-        addMovie(name) {
-            movies.push(name);
+        addMovie(movie) {
+            movies.push(movie);
         },
         getMovies() {
             return movies;
         },
         markAsFavorite(goodie) {
-
+            goodie.isFavorite = true;
         },
     };
 });

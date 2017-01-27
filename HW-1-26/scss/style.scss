@@ -13,3 +13,22 @@ button {
     @include button;
     border-radius: 5px;
 }
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    li {
+        border: 2px solid white;
+        padding:1%;
+        width:20%;
+        margin: 2%;
+    }
+
+    img {
+        height: 250px;
+    }
+
+}
