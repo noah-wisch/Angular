@@ -24,6 +24,9 @@ body {
         border: 2px solid $accent-color;
         border-radius:5px;
         
+        h1 {
+            max-width: 100%;
+        }
     }
 
     #title {
